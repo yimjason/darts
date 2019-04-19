@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Darts</title>
+<style type="text/css">
+body{
+	margin: 0 auto;
+	background-color: brown;
+	color: white;
+}
+h1{
+	text-align: center;
+	font-size: 60px;
+	font-family: helvetica;
+	text-transform: uppercase;
+	text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
+}
+.message{
+	position: fixed;
+	top: 100px;
+	left:100px;
+	font-size: 22px;
+	font-family: sans-serif;
+}
+.dartboard {width:600px; height:600px; background:#333; border-radius:600px; position:relative; margin:0 auto; box-shadow:0 0 10px rgba(0,0,0,0.8);}
+.dartboard .outerRing {width:578px; height:578px; border:2px solid #ddd; border-radius:580px; position:absolute; left:10px; top:10px;}
+.dartboard .numbersTop {width: 60px; height:50px; font:normal 50px/50px arial, sans-serif; color:#ddd; position:absolute; left:270px; top:3px; text-align:center;
+text-shadow:
+-1px 0 1px #eee,
+1px 0 1px #000;
+-webkit-transform-origin:30px 297px;
+-moz-transform-origin:30px 297px;
+-ms-transform-origin:30px 297px;
+-o-transform-origin:30px 297px;
+transform-origin:30px 297px;
+}
+.dartboard .p11 {
+-webkit-transform:rotate(-90deg);
+-moz-transform:rotate(-90deg);
+-ms-transform:rotate(-90deg);
+-o-transform:rotate(-90deg);
+transform:rotate(-90deg);
+}
+.dartboard .p14 {
+-webkit-transform:rotate(-72deg);
+-moz-transform:rotate(-72deg);
+-ms-transform:rotate(-72deg);
+-o-transform:rotate(-72deg);
+transform:rotate(-72deg);
+}
+.dartboard .p9 {
+-webkit-transform:rotate(-54deg);
+-moz-transform:rotate(-54deg);
+-ms-transform:rotate(-54deg);
+-o-transform:rotate(-54deg);
+transform:rotate(-54deg);
+}
+.dartboard .p12 {
+-webkit-transform:rotate(-36deg);
+-moz-transform:rotate(-36deg);
+-ms-transform:rotate(-36deg);
+-o-transform:rotate(-36deg);
+transform:rotate(-36deg);
+}
+.dartboard .p5 {
+-webkit-transform:rotate(-18deg);
+-moz-transform:rotate(-18deg);
+-ms-transform:rotate(-18deg);
+-o-transform:rotate(-18deg);
+transform:rotate(-18deg);
+}
+.dartboard .p20 {
+-webkit-transform:rotate(0);
+-moz-transform:rotate(0);
+-ms-transform:rotate(0);
+-o-transform:rotate(0);
+transform:rotate(0);
+}
+.dartboard .p1 {
+-webkit-transform:rotate(18deg);
+-moz-transform:rotate(18deg);
+-ms-transform:rotate(18deg);
+-o-transform:rotate(18deg);
+transform:rotate(18deg);
+}
+.dartboard .p18 {
+-webkit-transform:rotate(36deg);
+-moz-transform:rotate(36deg);
+-ms-transform:rotate(36deg);
+-o-transform:rotate(36deg);
+transform:rotate(36deg);
+}
+.dartboard .p4 {
+-webkit-transform:rotate(54deg);
+-moz-transform:rotate(54deg);
+-ms-transform:rotate(54deg);
+-o-transform:rotate(54deg);
+transform:rotate(54deg);
+}
+.dartboard .p13 {
+-webkit-transform:rotate(72deg);
+-moz-transform:rotate(72deg);
+-ms-transform:rotate(72deg);
+-o-transform:rotate(72deg);
+transform:rotate(72deg);
+}
+.dartboard .p6 {
+-webkit-transform:rotate(90deg);
+-moz-transform:rotate(90deg);
+-ms-transform:rotate(90deg);
+-o-transform:rotate(90deg);
+transform:rotate(90deg);
+}
+.dartboard .numbersBottom {width: 60px; height:50px; font:normal 50px/50px arial, sans-serif; color:#ddd; position:absolute; left:270px; bottom:1px; text-align:center;
+text-shadow:
+-1px 0 1px #eee,
+1px 0 1px #000;
+-webkit-transform-origin:30px -246px;
+-moz-transform-origin:30px -246px;
+-ms-transform-origin:30px -246px;
+-o-transform-origin:30px -246px;
+transform-origin:30px -246px;
+}
+
+.dartboard .p8 {
+-webkit-transform:rotate(72deg);
+-moz-transform:rotate(72deg);
+-ms-transform:rotate(72deg);
+-o-transform:rotate(72deg);
+transform:rotate(72deg);
+}
+.dartboard .p16 {
+-webkit-transform:rotate(54deg);
+-moz-transform:rotate(54deg);
+-ms-transform:rotate(54deg);
+-o-transform:rotate(54deg);
+transform:rotate(54deg);
+}
+.dartboard .p7 {
+-webkit-transform:rotate(36deg);
+-moz-transform:rotate(36deg);
+-ms-transform:rotate(36deg);
+-o-transform:rotate(36deg);
+transform:rotate(36deg);
+}
+.dartboard .p19 {
+-webkit-transform:rotate(18deg);
+-moz-transform:rotate(18deg);
+-ms-transform:rotate(18deg);
+-o-transform:rotate(18deg);
+transform:rotate(18deg);
+}
+.dartboard .p3 {
+-webkit-transform:rotate(0deg);
+-moz-transform:rotate(0deg);
+-ms-transform:rotate(0deg);
+-o-transform:rotate(0deg);
+transform:rotate(0deg);
+}
+.dartboard .p17 {
+-webkit-transform:rotate(-18deg);
+-moz-transform:rotate(-18deg);
+-ms-transform:rotate(-18deg);
+-o-transform:rotate(-18deg);
+transform:rotate(-18deg);
+}
+.dartboard .p2 {
+-webkit-transform:rotate(-36deg);
+-moz-transform:rotate(-36deg);
+-ms-transform:rotate(-36deg);
+-o-transform:rotate(-36deg);
+transform:rotate(-36deg);
+}
+.dartboard .p15 {
+-webkit-transform:rotate(-54deg);
+-moz-transform:rotate(-54deg);
+-ms-transform:rotate(-54deg);
+-o-transform:rotate(-54deg);
+transform:rotate(-54deg);
+}
+.dartboard .p10 {
+-webkit-transform:rotate(-72deg);
+-moz-transform:rotate(-72deg);
+-ms-transform:rotate(-72deg);
+-o-transform:rotate(-72deg);
+transform:rotate(-72deg);
+}
+.ringOne {width:446px; height:446px; border:2px solid #ddd; border-radius:450px; position:absolute; left:75px; top:75px; background:#363; box-shadow: inset 0 0 5px rgba(0,0,0,0.8);}
+.ringOne b {width:223px; height:223px; position:absolute; left:223px; top:0; overflow:hidden;
+-webkit-transform-origin: 0 223px;
+-moz-transform-origin: 0 223px;
+-ms-transform-origin: 0 223px;
+-o-transform-origin: 0 223px;
+transform-origin: 0 223px;
+}
+.ringOne b span {display:block;width:223px; height:223px; position:absolute; left:0; top:0; background:#a33; border-radius:0 223px 0 0; box-shadow:inset 0 0 5px rgba(0,0,0,0.8);
+-webkit-transform-origin: 0 223px;
+-moz-transform-origin: 0 223px;
+-ms-transform-origin: 0 223px;
+-o-transform-origin: 0 223px;
+transform-origin: 0 223px;
+-webkit-transform:skewX(72deg);
+-moz-transform:skewX(72deg);
+-ms-transform:skewX(72deg);
+-o-transform:skewX(72deg);
+transform:skewX(72deg);
+}
+.dartboard b.b1 {
+-webkit-transform:rotate(-81deg) skewX(-72deg);
+-moz-transform:rotate(-81deg) skewX(-72deg);
+-ms-transform:rotate(-81deg) skewX(-72deg);
+-o-transform:rotate(-81deg) skewX(-72deg);
+transform:rotate(-81deg) skewX(-72deg);
+}
+.dartboard b.b2 {
+-webkit-transform:rotate(-45deg) skewX(-72deg);
+-moz-transform:rotate(-45deg) skewX(-72deg);
+-ms-transform:rotate(-45deg) skewX(-72deg);
+-o-transform:rotate(-45deg) skewX(-72deg);
+transform:rotate(-45deg) skewX(-72deg);
+}
+.dartboard b.b3 {
+-webkit-transform:rotate(-9deg) skewX(-72deg);
+-moz-transform:rotate(-9deg) skewX(-72deg);
+-ms-transform:rotate(-9deg) skewX(-72deg);
+-o-transform:rotate(-9deg) skewX(-72deg);
+transform:rotate(-9deg) skewX(-72deg);
+}
+.dartboard b.b4 {
+-webkit-transform:rotate(27deg) skewX(-72deg);
+-moz-transform:rotate(27deg) skewX(-72deg);
+-ms-transform:rotate(27deg) skewX(-72deg);
+-o-transform:rotate(27deg) skewX(-72deg);
+transform:rotate(27deg) skewX(-72deg);
+}
+.dartboard b.b5 {
+-webkit-transform:rotate(63deg) skewX(-72deg);
+-moz-transform:rotate(63deg) skewX(-72deg);
+-ms-transform:rotate(63deg) skewX(-72deg);
+-o-transform:rotate(63deg) skewX(-72deg);
+transform:rotate(63deg) skewX(-72deg);
+}
+.dartboard b.b6 {
+-webkit-transform:rotate(99deg) skewX(-72deg);
+-moz-transform:rotate(99deg) skewX(-72deg);
+-ms-transform:rotate(99deg) skewX(-72deg);
+-o-transform:rotate(99deg) skewX(-72deg);
+transform:rotate(99deg) skewX(-72deg);
+}
+.dartboard b.b7 {
+-webkit-transform:rotate(135deg) skewX(-72deg);
+-moz-transform:rotate(135deg) skewX(-72deg);
+-ms-transform:rotate(135deg) skewX(-72deg);
+-o-transform:rotate(135deg) skewX(-72deg);
+transform:rotate(135deg) skewX(-72deg);
+}
+.dartboard b.b8 {
+-webkit-transform:rotate(171deg) skewX(-72deg);
+-moz-transform:rotate(171deg) skewX(-72deg);
+-ms-transform:rotate(171deg) skewX(-72deg);
+-o-transform:rotate(171deg) skewX(-72deg);
+transform:rotate(171deg) skewX(-72deg);
+}
+.dartboard b.b9 {
+-webkit-transform:rotate(207deg) skewX(-72deg);
+-moz-transform:rotate(207deg) skewX(-72deg);
+-ms-transform:rotate(207deg) skewX(-72deg);
+-o-transform:rotate(207deg) skewX(-72deg);
+transform:rotate(207deg) skewX(-72deg);
+}
+.dartboard b.b10 {
+-webkit-transform:rotate(243deg) skewX(-72deg);
+-moz-transform:rotate(243deg) skewX(-72deg);
+-ms-transform:rotate(243deg) skewX(-72deg);
+-o-transform:rotate(243deg) skewX(-72deg);
+transform:rotate(243deg) skewX(-72deg);
+}
+.ringTwo {width:416px; height:416px; border:2px solid #ddd; border-radius:420px; position:absolute; left:90px; top:90px; background:#eec; box-shadow: inset 0 0 5px rgba(0,0,0,0.8);}
+.ringTwo b {width:208px; height:208px; position:absolute; left:208px; top:0; overflow:hidden;
+-webkit-transform-origin: 0 208px;
+-moz-transform-origin: 0 208px;
+-ms-transform-origin: 0 208px;
+-o-transform-origin: 0 208px;
+transform-origin: 0 208px;
+}
+.ringTwo b span {display:block;width:208px; height:208px; position:absolute; left:0; top:0; background:#333; border-radius:0 208px 0 0; box-shadow:inset 0 0 5px rgba(0,0,0,0.8);
+-webkit-transform-origin: 0 208px;
+-moz-transform-origin: 0 208px;
+-ms-transform-origin: 0 208px;
+-o-transform-origin: 0 208px;
+transform-origin: 0 208px;
+-webkit-transform:skewX(72deg);
+-moz-transform:skewX(72deg);
+-ms-transform:skewX(72deg);
+-o-transform:skewX(72deg);
+transform:skewX(72deg);
+}
+
+.ringThree {width:300px; height:300px; border:2px solid #ddd; border-radius:300px; position:absolute; left:148px; top:148px; background:#363; box-shadow: inset 0 0 5px rgba(0,0,0,0.8);}
+.ringThree b {width:150px; height:150px; position:absolute; left:150px; top:0; overflow:hidden;
+-webkit-transform-origin: 0 150px;
+-moz-transform-origin: 0 150px;
+-ms-transform-origin: 0 150px;
+-o-transform-origin: 0 150px;
+transform-origin: 0 150px;
+}
+.ringThree b span {display:block;width:150px; height:150px; position:absolute; left:0; top:0; background:#a33; border-radius:0 150px 0 0; box-shadow: inset 0 0 5px rgba(0,0,0,0.8);
+-webkit-transform-origin: 0 150px;
+-moz-transform-origin: 0 150px;
+-ms-transform-origin: 0 150px;
+-o-transform-origin: 0 150px;
+transform-origin: 0 150px;
+-webkit-transform:skewX(72deg);
+-moz-transform:skewX(72deg);
+-ms-transform:skewX(72deg);
+-o-transform:skewX(72deg);
+transform:skewX(72deg);
+}
+
+.ringFour {width:270px; height:270px; border:2px solid #ddd; border-radius:270px; position:absolute; left:163px; top:163px; background:#eec; box-shadow: inset 0 0 5px rgba(0,0,0,0.8);}
+.ringFour b {width:135px; height:135px; position:absolute; left:135px; top:0; overflow:hidden;
+-webkit-transform-origin: 0 135px;
+-moz-transform-origin: 0 135px;
+-ms-transform-origin: 0 135px;
+-o-transform-origin: 0 135px;
+transform-origin: 0 135px;
+}
+.ringFour b span {display:block;width:135px; height:135px; position:absolute; left:0; top:0; background:#333; border-radius:0 135px 0 0; box-shadow: inset 0 0 5px rgba(0,0,0,0.8);
+-webkit-transform-origin: 0 135px;
+-moz-transform-origin: 0 135px;
+-ms-transform-origin: 0 135px;
+-o-transform-origin: 0 135px;
+transform-origin: 0 135px;
+-webkit-transform:skewX(72deg);
+-moz-transform:skewX(72deg);
+-ms-transform:skewX(72deg);
+-o-transform:skewX(72deg);
+transform:skewX(72deg);
+}
+
+.ringFive {width:48px; height:48px; border:2px solid #ddd; border-radius:48px; position:absolute; left:274px; top:274px; background:#363; box-shadow: 0 0 5px rgba(0,0,0,0.8); box-shadow: inset 0 0 5px rgba(0,0,0,0.8);}
+.ringSix {width:20px; height:20px; border:2px solid #ddd; border-radius:20px; position:absolute; left:288px; top:288px; background:#a33; box-shadow: 0 0 5px rgba(0,0,0,0.8); box-shadow: inset 0 0 5px rgba(0,0,0,0.8);}
+.ringSeven {width:480px; height:480px; position:absolute; left:60px; top:60px;}
+.ringSeven b {display:block; width:2px; height:216px; position:absolute; left:239px; top:0; background:#ddd; box-shadow: 0 0 5px rgba(0,0,0,0.9);
+-webkit-transform-origin:1px 241px;
+-moz-transform-origin:1px 241px;
+-ms-transform-origin:1px 241px;
+-o-transform-origin:1px 241px;
+transform-origin:1px 241px;
+}
+.ringSeven b.x1 {
+-webkit-transform:rotate(9deg);
+-moz-transform:rotate(9deg);
+-ms-transform:rotate(9deg);
+-o-transform:rotate(9deg);
+transform:rotate(9deg);
+}
+.ringSeven b.x2 {
+-webkit-transform:rotate(27deg);
+-moz-transform:rotate(27deg);
+-ms-transform:rotate(27deg);
+-o-transform:rotate(27deg);
+transform:rotate(27deg);
+}
+.ringSeven b.x3 {
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-ms-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+transform:rotate(45deg);
+}
+.ringSeven b.x4 {
+-webkit-transform:rotate(63deg);
+-moz-transform:rotate(63deg);
+-ms-transform:rotate(63deg);
+-o-transform:rotate(63deg);
+transform:rotate(63deg);
+}
+.ringSeven b.x5 {
+-webkit-transform:rotate(81deg);
+-moz-transform:rotate(81deg);
+-ms-transform:rotate(81deg);
+-o-transform:rotate(81deg);
+transform:rotate(81deg);
+}
+.ringSeven b.x6 {
+-webkit-transform:rotate(99deg);
+-moz-transform:rotate(99deg);
+-ms-transform:rotate(99deg);
+-o-transform:rotate(99deg);
+transform:rotate(99deg);
+}
+.ringSeven b.x7 {
+-webkit-transform:rotate(117deg);
+-moz-transform:rotate(117deg);
+-ms-transform:rotate(117deg);
+-o-transform:rotate(117deg);
+transform:rotate(117deg);
+}
+.ringSeven b.x8 {
+-webkit-transform:rotate(135deg);
+-moz-transform:rotate(135deg);
+-ms-transform:rotate(135deg);
+-o-transform:rotate(135deg);
+transform:rotate(135deg);
+}
+.ringSeven b.x9 {
+-webkit-transform:rotate(153deg);
+-moz-transform:rotate(153deg);
+-ms-transform:rotate(153deg);
+-o-transform:rotate(153deg);
+transform:rotate(153deg);
+}
+.ringSeven b.x10 {
+-webkit-transform:rotate(171deg);
+-moz-transform:rotate(171deg);
+-ms-transform:rotate(171deg);
+-o-transform:rotate(171deg);
+transform:rotate(171deg);
+}
+.ringSeven b.x11 {
+-webkit-transform:rotate(189deg);
+-moz-transform:rotate(189deg);
+-ms-transform:rotate(189deg);
+-o-transform:rotate(189deg);
+transform:rotate(189deg);
+}
+.ringSeven b.x12 {
+-webkit-transform:rotate(207deg);
+-moz-transform:rotate(207deg);
+-ms-transform:rotate(207deg);
+-o-transform:rotate(207deg);
+transform:rotate(207deg);
+}
+.ringSeven b.x13 {
+-webkit-transform:rotate(225deg);
+-moz-transform:rotate(225deg);
+-ms-transform:rotate(225deg);
+-o-transform:rotate(225deg);
+transform:rotate(225deg);
+}
+.ringSeven b.x14 {
+-webkit-transform:rotate(243deg);
+-moz-transform:rotate(243deg);
+-ms-transform:rotate(243deg);
+-o-transform:rotate(243deg);
+transform:rotate(243deg);
+}
+.ringSeven b.x15 {
+-webkit-transform:rotate(261deg);
+-moz-transform:rotate(261deg);
+-ms-transform:rotate(261deg);
+-o-transform:rotate(261deg);
+transform:rotate(261deg);
+}
+.ringSeven b.x16 {
+-webkit-transform:rotate(279deg);
+-moz-transform:rotate(279deg);
+-ms-transform:rotate(279deg);
+-o-transform:rotate(279deg);
+transform:rotate(279deg);
+}
+.ringSeven b.x17 {
+-webkit-transform:rotate(297deg);
+-moz-transform:rotate(297deg);
+-ms-transform:rotate(297deg);
+-o-transform:rotate(297deg);
+transform:rotate(297deg);
+}
+.ringSeven b.x18 {
+-webkit-transform:rotate(315deg);
+-moz-transform:rotate(315deg);
+-ms-transform:rotate(315deg);
+-o-transform:rotate(315deg);
+transform:rotate(315deg);
+}
+.ringSeven b.x19 {
+-webkit-transform:rotate(333deg);
+-moz-transform:rotate(333deg);
+-ms-transform:rotate(333deg);
+-o-transform:rotate(333deg);
+transform:rotate(333deg);
+}
+.ringSeven b.x20 {
+-webkit-transform:rotate(351deg);
+-moz-transform:rotate(351deg);
+-ms-transform:rotate(351deg);
+-o-transform:rotate(351deg);
+transform:rotate(351deg);
+}
+
+</style>
+</head>
+
+<body>
+	<h1>Darts</h1>
+<div class="dartboard">
+	<div class="outerRing"></div>
+	<div class="numbersTop p11">11</div>
+	<div class="numbersTop p14">14</div>
+	<div class="numbersTop p9">9</div>
+	<div class="numbersTop p12">12</div>
+	<div class="numbersTop p5">5</div>
+	<div class="numbersTop p20">20</div>
+	<div class="numbersTop p1">1</div>
+	<div class="numbersTop p18">18</div>
+	<div class="numbersTop p4">4</div>
+	<div class="numbersTop p13">13</div>
+	<div class="numbersTop p6">6</div>
+	<div class="numbersBottom p8">8</div>
+	<div class="numbersBottom p16">16</div>
+	<div class="numbersBottom p7">7</div>
+	<div class="numbersBottom p19">19</div>
+	<div class="numbersBottom p3">3</div>
+	<div class="numbersBottom p17">17</div>
+	<div class="numbersBottom p2">2</div>
+	<div class="numbersBottom p15">15</div>
+	<div class="numbersBottom p10">10</div>
+	<div class="ringOne">
+		<b class="b1"><span></span></b>
+		<b class="b2"><span></span></b>
+		<b class="b3"><span></span></b>
+		<b class="b4"><span></span></b>
+		<b class="b5"><span></span></b>
+		<b class="b6"><span></span></b>
+		<b class="b7"><span></span></b>
+		<b class="b8"><span></span></b>
+		<b class="b9"><span></span></b>
+		<b class="b10"><span></span></b>
+	</div>
+	<div class="ringTwo">
+		<b class="b1"><span></span></b>
+		<b class="b2"><span></span></b>
+		<b class="b3"><span></span></b>
+		<b class="b4"><span></span></b>
+		<b class="b5"><span></span></b>
+		<b class="b6"><span></span></b>
+		<b class="b7"><span></span></b>
+		<b class="b8"><span></span></b>
+		<b class="b9"><span></span></b>
+		<b class="b10"><span></span></b>
+	</div>
+	<div class="ringThree">
+		<b class="b1"><span></span></b>
+		<b class="b2"><span></span></b>
+		<b class="b3"><span></span></b>
+		<b class="b4"><span></span></b>
+		<b class="b5"><span></span></b>
+		<b class="b6"><span></span></b>
+		<b class="b7"><span></span></b>
+		<b class="b8"><span></span></b>
+		<b class="b9"><span></span></b>
+		<b class="b10"><span></span></b>
+	</div>
+	<div class="ringFour">
+		<b class="b1"><span></span></b>
+		<b class="b2"><span></span></b>
+		<b class="b3"><span></span></b>
+		<b class="b4"><span></span></b>
+		<b class="b5"><span></span></b>
+		<b class="b6"><span></span></b>
+		<b class="b7"><span></span></b>
+		<b class="b8"><span></span></b>
+		<b class="b9"><span></span></b>
+		<b class="b10"><span></span></b>
+	</div>
+	<div class="ringFive"></div>
+	<div class="ringSix"></div>
+	<div class="ringSeven">
+		<b class="x1"></b>
+		<b class="x2"></b>
+		<b class="x3"></b>
+		<b class="x4"></b>
+		<b class="x5"></b>
+		<b class="x6"></b>
+		<b class="x7"></b>
+		<b class="x8"></b>
+		<b class="x9"></b>
+		<b class="x10"></b>
+		<b class="x11"></b>
+		<b class="x12"></b>
+		<b class="x13"></b>
+		<b class="x14"></b>
+		<b class="x15"></b>
+		<b class="x16"></b>
+		<b class="x17"></b>
+		<b class="x18"></b>
+		<b class="x19"></b>
+		<b class="x20"></b>
+	</div>
+</div>
+<section class="message">
+	
+</section>
+<script> 
+function DartBoard(){
+	this.inner_bulls_eye =   20;
+	this.outer_bulls_eye =   50;
+	this.inner_default	 =  270;
+	this.triple_ring	 =  300;
+	this.outer_default	 =  420;
+	this.double_ring	 =  450;
+	this.ANGLE_SPAN = 18;
+	this.radials_points = [6,13,4,18,1,20,5,12,9,14,11,8,16,7,19,3,17,2,15,10];
+	this.radials = this.create_radials();
+	this.GUI = document.getElementsByClassName('dartboard')[0];
+	this.calibrate();
+	this.set_up();
+}
+
+function Radial(points, start, end){
+	this.points = points;
+	this.start = start;
+	this.end = end;
+}
+
+DartBoard.prototype.create_radials = function(){
+	var start_angle = 9;
+	var span = this.ANGLE_SPAN;
+	var radials = [];
+	var l = this.radials_points.length;
+	for(var x = 0; x < l; x++){
+		var radials_point = this.radials_points[x];
+		var end_angle = x == 0 ? 351 : start_angle-span;
+		radials.push(new Radial(radials_point, start_angle, end_angle));
+		start_angle += span;
+	}
+	return radials;
+};
+
+DartBoard.prototype.get_ring_pts = function(x, y){
+	var r =  Math.sqrt( Math.pow(x, 2) + Math.pow(y, 2) );
+	r = r*2; // for calibration
+	var output = {points: 0, message: ''};
+	switch(true){
+		case (r <= this.inner_bulls_eye): output.points = 50; output.message = 'DOUBLE BULL!'; break;
+		case (r <= this.outer_bulls_eye): output.points = 25; output.message = 'BULL!'; break;
+		case (r <= this.inner_default): output.points = this.get_radial_pts(x, y); break;
+		case (r <= this.triple_ring): output.points = 3*this.get_radial_pts(x, y); output.message = 'TRIPLE!'; break;
+		case (r <= this.outer_default): output.points = this.get_radial_pts(x, y); break;
+		case (r <= this.double_ring): output.points = 2*this.get_radial_pts(x, y); output.message = 'DOUBLE!'; break;
+		default: output.message = 'Out of Bounds';
+	}
+	return output;
+};
+
+DartBoard.prototype.get_radial_pts = function(x, y){
+	var a = Math.atan(y/x)*180/Math.PI;
+	switch(true){
+		case x < 0 && y <  0: a = 180 + Math.abs(a); break;
+		case x < 0 && y >= 0: a = 180 - Math.abs(a); break;
+		case y < 0 && x >= 0: a = 360 - Math.abs(a); break;
+	}
+	var points = 0;
+	var l = this.radials.length;
+	for(var x = 0; x < l; x++){
+		var radial = this.radials[x];
+		if(x == 0){
+			if(a <= radial.start || a > radial.end){ points = radial.points; }
+		}else{
+			if(a <= radial.start && a > radial.end){ points = radial.points; }	
+		}
+	}
+	return points;
+};
+
+DartBoard.prototype.calibrate = function(){
+	var top_margin = this.GUI.offsetTop;
+	var scrollY = document.body.scrollTop;
+	var scrollX = document.body.scrollLeft;
+	var offsetX = window.innerWidth/2 - scrollX - 10;
+	var offsetY = this.GUI.clientHeight/2 + top_margin - scrollY;
+	return {x: offsetX, y: offsetY};
+};
+
+DartBoard.prototype.get_results = function(event){
+	var messageboard = document.getElementsByClassName('message')[0];
+	var offsets = this.calibrate();
+	var x = event.x-offsets.x;
+	var y = -1*(event.y-offsets.y);
+	var results = this.get_ring_pts(x, y);
+	messageboard.innerHTML = '';
+	var p2 = createTag('p', '',messageboard);
+	p2.innerHTML = 'x: '+x+', y: '+y;
+	var p3 = createTag('p', '',messageboard);
+	p3.innerHTML = 'Points: '+results.points;
+	var p4 = createTag('p', '',messageboard);
+	p4.innerHTML = results.message;
+};
+
+DartBoard.prototype.set_up = function(){
+	var self = this;
+	this.GUI.addEventListener('click', function(){
+		self.get_results(event);
+	});
+};
+
+function log(string){
+	console.log(string);
+}
+
+function createTag(tagname,classname, parent){
+	var element = document.createElement(tagname);
+	element.className = classname;
+	parent.appendChild(element);
+	return element;
+}
+
+var db = new DartBoard();
+
+</script>
+
+</body>
+</html>
